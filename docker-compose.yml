@@ -7,7 +7,7 @@ services:
     image: postgres
     restart: always
     ports:
-      - "10154:5432"
+      - 5432:5432
     environment:
       POSTGRES_PASSWORD: 1234
       POSTGRES_USER: postgres
@@ -15,8 +15,8 @@ services:
     container_name: cloud_storage
     build: ./
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:10154/postgres
+      SPRING_DATASOURCE_URL: jdbc:postgresql://dbase:5432/postgres
     ports:
-      - "8080:8080"
+      - 8080:8080
     depends_on:
-      - dbase
+      - dbase:postgres_cloud
