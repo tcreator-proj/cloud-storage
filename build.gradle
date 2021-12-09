@@ -34,6 +34,11 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.testcontainers:junit-jupiter'
     testImplementation 'org.testcontainers:postgresql'
+    // https://mvnrepository.com/artifact/org.mockito/mockito-all
+    testImplementation 'org.mockito:mockito-all:1.10.19'
+    // https://mvnrepository.com/artifact/org.liquibase/liquibase-core
+    implementation("org.liquibase:liquibase-core:4.6.2")
+
 }
 
 dependencyManagement {

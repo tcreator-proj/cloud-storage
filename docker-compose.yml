@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  dbase:
+    container_name: postgres_cloud
+
+    image: postgres
+    restart: always
+    ports:
+      - "10154:5432"
+    environment:
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_USER: postgres
+  cloud_storage:
+    container_name: cloud_storage
+    build: ./
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:10154/postgres
+    ports:
+      - "8080:8080"
+    depends_on:
+      - dbase
